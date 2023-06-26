@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Продукты" Height="495" Width="1038">
     <Grid>
-        <DataGrid x:Name="DataG" Margin="10,39,178,10" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*">
+        <DataGrid x:Name="DataG" Margin="10,39,178,10" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" TabIndex="2" SelectedCellsChanged="DataG_SelectedCellsChanged">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <Setter Property="Background" Value="{Binding Color}"></Setter>
@@ -40,14 +40,21 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Label x:Name="CountLabel" Content="-" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <ComboBox x:Name="CBSort1" Margin="0,39,10,0" Height="22" VerticalAlignment="Top" HorizontalAlignment="Right" Width="163" SelectionChanged="CBSort1_SelectionChanged">
+        <Label x:Name="CountLabel" Content="-" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="18" TabIndex="1"/>
+        <StackPanel x:Name="panel" Margin="0,93,10,10" HorizontalAlignment="Right" Width="163" >
+            <TextBlock x:Name="NameTB" TextWrapping="Wrap" Text="-" FontSize="18" TextAlignment="Center"/>
+            <Image x:Name="imgProd" Height="100" Width="100"/>
+            <TextBlock x:Name="WoutDisTB" TextWrapping="Wrap" Text="-" FontSize="18" TextDecorations="Strikethrough" TextAlignment="Center"/>
+            <TextBlock x:Name="WDisTB" TextWrapping="Wrap" Text="-" FontSize="18" TextAlignment="Center"/>
+
+        </StackPanel>
+        <ComboBox x:Name="CBSort1" Margin="0,39,10,0" Height="22" VerticalAlignment="Top" HorizontalAlignment="Right" Width="163" SelectionChanged="CBSort1_SelectionChanged" TabIndex="3">
             <ComboBoxItem>0%-9,99%</ComboBoxItem>
             <ComboBoxItem>10%-14,99%</ComboBoxItem>
             <ComboBoxItem>15% и более</ComboBoxItem>
             <ComboBoxItem>Все диапазоны</ComboBoxItem>
         </ComboBox>
-        <ComboBox x:Name="CBSort2" Margin="0,66,10,0" Height="22" VerticalAlignment="Top" HorizontalAlignment="Right" Width="163" SelectionChanged="CBSort2_SelectionChanged">
+        <ComboBox x:Name="CBSort2" Margin="0,66,10,0" Height="22" VerticalAlignment="Top" HorizontalAlignment="Right" Width="163" SelectionChanged="CBSort2_SelectionChanged" TabIndex="4">
             <ComboBoxItem>Сортировать по убыванию цены</ComboBoxItem>
             <ComboBoxItem>Сортировать по возрастанию цены</ComboBoxItem>
         </ComboBox>
